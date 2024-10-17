@@ -3,7 +3,7 @@ const { join } = require('path');
 
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/apps/kaban-board-backend'),
+    path: join(__dirname, '../../dist/apps/kanban-board-backend'),
   },
   plugins: [
     new NxAppWebpackPlugin({
