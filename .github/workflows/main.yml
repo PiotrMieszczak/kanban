@@ -20,12 +20,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'yarn'
+      
       - name: Cache Node Modules
         uses: actions/cache@v3
         with:
           path: ./kanban/kanban-board/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/kanban/kanban-board/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('kanban/kanban-board/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
