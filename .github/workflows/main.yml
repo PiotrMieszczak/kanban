@@ -24,26 +24,26 @@ jobs:
       - name: Cache Node Modules
         uses: actions/cache@v3
         with:
-          path: ./kanban/kanban-board/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('kanban/kanban-board/yarn.lock') }}
+          path: kanban-board/node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('kanban-board/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
       # Install dependencies
       - run: yarn install --frozen-lockfile
-        working-directory: ./kanban/kanban-board
+        working-directory: kanban-board
 
       # Set SHA for affected commands
       - uses: nrwl/nx-set-shas@v4
         with:
-          working-directory: ./kanban/kanban-board
+          working-directory: kanban-board
 
       # Run Nx affected commands for lint, test, build, and e2e
       - run: yarn nx affected --target=lint --base=main --head=$(git rev-parse HEAD)
-        working-directory: ./kanban/kanban-board
+        working-directory: kanban-board
       - run: yarn nx affected --target=test --base=main --head=$(git rev-parse HEAD)
-        working-directory: ./kanban/kanban-board
+        working-directory: kanban-board
       - run: yarn nx affected --target=build --base=main --head=$(git rev-parse HEAD)
-        working-directory: ./kanban/kanban-board
+        working-directory: kanban-board
       - run: yarn nx affected --target=e2e --base=main --head=$(git rev-parse HEAD)
-        working-directory: ./kanban/kanban-board
+        working-directory: kanban-board
