@@ -10,10 +10,6 @@ jobs:
   main:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./kanban-board
-
     steps:
       # Checkout the code
       - uses: actions/checkout@v4
@@ -28,12 +24,19 @@ jobs:
 
       # Install dependencies
       - run: yarn install --frozen-lockfile
+        working-directory: ./kanban-board
 
       # Set SHA for affected commands
       - uses: nrwl/nx-set-shas@v4
+        with:
+          working-directory: ./kanban-board
 
       # Run Nx affected commands for lint, test, build, and e2e
       - run: yarn nx affected --target=lint --base=main --head=$(git rev-parse HEAD)
+        working-directory: ./kanban-board
       - run: yarn nx affected --target=test --base=main --head=$(git rev-parse HEAD)
+        working-directory: ./kanban-board
       - run: yarn nx affected --target=build --base=main --head=$(git rev-parse HEAD)
+        working-directory: ./kanban-board
       - run: yarn nx affected --target=e2e --base=main --head=$(git rev-parse HEAD)
+        working-directory: ./kanban-board
