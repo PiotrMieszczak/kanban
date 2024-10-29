@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code
+      # Checkout the code with full history to access all branches
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -33,12 +33,7 @@ jobs:
       - run: yarn install --frozen-lockfile
         working-directory: kanban-board
 
-      # Set SHA for affected commands
-      - uses: nrwl/nx-set-shas@v4
-        with:
-          working-directory: kanban-board
-
-      # Run Nx affected commands for lint, test, build, and e2e
+      # Run Nx affected commands with explicit base branch as master
       - run: yarn nx affected --target=lint --base=master --head=$(git rev-parse HEAD)
         working-directory: kanban-board
       - run: yarn nx affected --target=test --base=master --head=$(git rev-parse HEAD)
