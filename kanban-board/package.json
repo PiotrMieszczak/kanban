@@ -2,7 +2,10 @@
   "name": "@kanban-board/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "kanban:lint": "nx run kanban-board:lint",
+    "kanban:test": "nx run kanban-board:test"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.2.0",
@@ -16,6 +19,12 @@
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
+    "@ngrx/effects": "^18.1.1",
+    "@ngrx/operators": "^18.1.1",
+    "@ngrx/router-store": "^18.1.1",
+    "@ngrx/signals": "^18.1.1",
+    "@ngrx/store": "^18.1.1",
+    "@ngrx/store-devtools": "^18.1.1",
     "@taiga-ui/cdk": "^4.11.0",
     "@taiga-ui/core": "^4.11.0",
     "@taiga-ui/icons": "^4.11.0",
