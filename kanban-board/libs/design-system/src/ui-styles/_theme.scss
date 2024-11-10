@@ -1,0 +1,37 @@
+@use './colors/variables' as colors;
+@use './typography/variables' as fonts;
+
+.theme {
+  @each $name, $color in colors.$theme-colors {
+    --#{"#{$name}"}: #{$color};
+  }
+
+  @each $element, $sizes in fonts.$scale {
+    @each $size, $props in $sizes {
+      $font-size: map-get($props, font-size);
+      $line-height: map-get($props, line-height);
+
+      --#{"#{$element}-#{$size}-font-size"}: #{$font-size};
+      --#{"#{$element}-#{$size}-line-height"}: #{$line-height};
+    }
+  }
+}
+
+.theme-light {
+  @each $name, $color in colors.$light-theme-colors {
+    --#{"#{$name}"}: #{$color};
+  }
+}
+
+.theme-dark {
+  @each $name, $color in colors.$dark-theme-colors {
+    --#{"#{$name}"}: #{$color};
+  }
+}
+
+
+.theme-dark {
+  @each $name, $color in colors.$dark-theme-colors {
+    --#{$name}: #{$color};
+  }
+}
