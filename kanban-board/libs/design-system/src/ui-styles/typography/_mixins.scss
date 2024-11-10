@@ -1,0 +1,25 @@
+@use 'variables';
+@use 'sass:map';
+
+
+@mixin font($font, $app) {
+    $sizes: map.get(variables.$scale, $font);
+    $size: map.get($sizes, $app);
+
+    font-size: map.get($size, font-size);
+    font-weight: map.get($size, font-weight);
+    line-height: map.get($size, line-height);
+    color: map.get($size, color);
+}
+
+@mixin regular {
+    font-weight: variables.$weight-regular;
+}
+
+@mixin medium {
+    font-weight: variables.$weight-medium;
+}
+
+@mixin bold {
+    font-weight: variables.$weight-bold;
+}

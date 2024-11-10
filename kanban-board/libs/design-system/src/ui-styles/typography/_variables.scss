@@ -1,0 +1,74 @@
+@use '../colors/variables' as color;
+
+// 12px
+$size-1: 0.75rem;
+// 13px
+$size-2: 0.813rem;
+// 15px;
+$size-3: 0.938rem;
+// 18px;
+$size-4: 1.125rem;
+// 24px;
+$size-5: 1.5rem;
+
+// 15px
+$line-1: 0.938rem;;
+// 19px
+$line-2: 1.1875rem;
+// 23px
+$line-3: 1.438rem;
+// 30px
+$line-4: 1.875rem;
+
+// -- Font Type ---
+$type-default: var(--font-type-default, sans-serif);
+
+// -- Font Weight --
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+
+// -- Typographic Scale --
+$scale: (
+  heading: (
+    xl: (
+      font-size: $size-5,
+      line-height: $line-4,
+      font-weight: $weight-bold,
+      color: color.$black
+    ),
+    l: (
+      font-size: $size-3,
+      line-height: $line-3,
+      font-weight: $weight-bold,
+      color: color.$black
+    ),
+    m: (
+        font-size: $size-2,
+        line-height: $line-2,
+        font-weight: $weight-bold,
+        color: color.$black
+      ),
+    s: (
+        font-size: $size-1,
+        line-height: $line-1,
+        font-weight: $weight-bold,
+        color: color.$medium-grey
+    ),
+  ),
+  body: (
+    l: (
+      font-size: $size-2,
+      line-height: $line-3,
+      font-weight: $weight-medium,
+      color: color.$dark-grey
+    ),
+    m: (
+      font-size: $size-1,
+      line-height: $line-1,
+      color: color.$dark-grey
+      font-weight: $weight-bold,
+    ),
+  ),
+);

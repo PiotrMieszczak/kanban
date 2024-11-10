@@ -15,6 +15,18 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "build": {
+      "executor": "@nx/web:build",
+      "options": {
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "libs/design-system/src/ui-styles",
+            "output": "./"
+          }
+        ]
+      }
     }
   }
 }
