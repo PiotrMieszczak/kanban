@@ -1,4 +1,5 @@
-@use '../colors/variables' as color;
+@use '../colors/variables' as colors;
+@use 'sass:map';
 
 // 12px
 $size-1: 0.75rem;
@@ -20,9 +21,6 @@ $line-3: 1.438rem;
 // 30px
 $line-4: 1.875rem;
 
-// -- Font Type ---
-$type-default: var(--font-type-default, sans-serif);
-
 // -- Font Weight --
 $weight-regular: 400;
 $weight-medium: 500;
@@ -36,25 +34,25 @@ $scale: (
       font-size: $size-5,
       line-height: $line-4,
       font-weight: $weight-bold,
-      color: color.$black
+      color: map-get(colors.$theme-colors, black)
     ),
     l: (
       font-size: $size-3,
       line-height: $line-3,
       font-weight: $weight-bold,
-      color: color.$black
+      color: map-get(colors.$theme-colors, black)
     ),
     m: (
         font-size: $size-2,
         line-height: $line-2,
         font-weight: $weight-bold,
-        color: color.$black
+        color: map-get(colors.$theme-colors, black)
       ),
     s: (
         font-size: $size-1,
         line-height: $line-1,
         font-weight: $weight-bold,
-        color: color.$medium-grey
+        color: map-get(colors.$theme-colors, medium-grey)
     ),
   ),
   body: (
@@ -62,13 +60,13 @@ $scale: (
       font-size: $size-2,
       line-height: $line-3,
       font-weight: $weight-medium,
-      color: color.$dark-grey
+      color: map-get(colors.$theme-colors, dark-grey)
     ),
     m: (
       font-size: $size-1,
       line-height: $line-1,
-      color: color.$dark-grey
       font-weight: $weight-bold,
+      color: map-get(colors.$theme-colors, dark-grey)
     ),
   ),
 );

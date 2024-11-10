@@ -9,10 +9,7 @@ import { Component, HostBinding } from "@angular/core";
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-  @HostBinding('class')
-  themeClass = 'theme'
-
   // TODO theme switching
   @HostBinding('class')
-  themeLight = 'theme-light'
+  themeClass = 'theme theme-light'
 }
